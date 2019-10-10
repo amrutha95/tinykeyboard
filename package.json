@@ -1,0 +1,23 @@
+{
+  "name": "tinykeyboard",
+  "version": "1.0.0",
+  "description": "Tiny keyboard",
+  "main": "index.html",
+  "dependencies": {
+    "myscript": "^4.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amrutha95/tinykeyboard.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amrutha95/tinykeyboard/issues"
+  },
+  "homepage": "https://github.com/amrutha95/tinykeyboard#readme"
+}
