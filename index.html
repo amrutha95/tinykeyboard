@@ -40,6 +40,14 @@
       }, 100);
 
   }
+  else {
+
+      text +=  document.getElementsByClassName("prompter-text")[0].firstChild.innerText;
+          console.log("else "+text);
+          document.getElementById("textbar").innerText = text;
+          editorElement.editor.clear();
+
+  }
           console.log("yay");
           });
     </script>
