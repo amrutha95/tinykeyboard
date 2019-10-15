@@ -8,12 +8,12 @@
         <style>
             #editor {
                 border:1px solid #000;
-                width: 2cm;
-                height: 2cm;
+                width: 20cm;
+                height: 20cm;
             }
             #lol {
               background: silver;
-              height: 2cm;
+              height: 20cm;
               text-align: center;
               font: 30px/300px Helvetica, Arial, sans-serif;
             }
@@ -41,32 +41,33 @@
         var run = true;
         editorElement.addEventListener('changed', async function(event) {
             if(document.getElementsByClassName("prompter-text")[0].firstChild==null){
-           
-            await setTimeout(function(){ 
-    
+
+            await setTimeout(function(){
+
             if(document.getElementsByClassName("prompter-text")[0].firstChild)
             {
-                
+
                 text +=  document.getElementsByClassName("prompter-text")[0].firstChild.innerText;
                 console.log(text);
                 document.getElementById("textbar").innerText = text;
                 editorElement.editor.clear();
                 run = !run;
             }
-            
-                
-        }, 100); 
-    
+        text="";
+
+        }, 100);
+
     }
         else {
+
             text +=  document.getElementsByClassName("prompter-text")[0].firstChild.innerText;
-                console.log(text);
+                console.log("else "+text);
                 document.getElementById("textbar").innerText = text;
                 editorElement.editor.clear();
-            
+
         }
         });
-    
+
 
         var tapElement = document.getElementById('tap');
         // We create a manager object, which is the same as Hammer(), but without the presetted recognizers.
