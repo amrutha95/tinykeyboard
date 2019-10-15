@@ -20,12 +20,12 @@
     </head>
     <body>
         <h1>This worked</h1>
-        <div id="tap" touch-action="none"></div>
-         <div id="editor" touch-action="none"></div>
-                
+        <div id="tap" touch-action="none">
+         <div id="editor" touch-action="none"></div>       
         </div>
 
         <p id="textbar"></p>
+        <p id="tapDetector"></p>
     <script>
         const editorElement = document.getElementById('editor');
         MyScript.register(editorElement, {
@@ -63,7 +63,7 @@
         }
         });
 
-
+        var i=0;
         var tapElement = document.getElementById('tap');
         // We create a manager object, which is the same as Hammer(), but without the presetted recognizers.
         var mc = new Hammer.Manager(tapElement);
@@ -77,6 +77,7 @@
         mc.get('singletap').requireFailure('doubletap');
         mc.on("doubletap", function(ev) {
           console.log("double tap");
+          document.getElementById("tapDetector").innerText = ++i;
         });
 
     </script>
