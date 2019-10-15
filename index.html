@@ -26,10 +26,22 @@
                 }
             }
         });
+        var text="";
         editorElement.addEventListener('changed', async function(event) {
+          if(document.getElementsByClassName("prompter-text")[0].firstChild==null){
+
+          await setTimeout(function(){
+
+          if(document.getElementsByClassName("prompter-text")[0].firstChild)
+          {
+              editorElement.editor.clear();
+          }
+
+      }, 100);
+
+  }
           console.log("yay");
           });
     </script>
     </body>
 </html>
-
