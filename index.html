@@ -11,18 +11,11 @@
                 width: 20cm;
                 height: 20cm;
             }
-            #lol {
-              background: silver;
-              height: 20cm;
-              text-align: center;
-              font: 30px/300px Helvetica, Arial, sans-serif;
-            }
         </style>
     </head>
     <body>
         <h1>This worked</h1>
         <div id="editor">
-        <div id="tap"></div>
         </div>
         <p id="textbar"></p>
     <script>
@@ -46,14 +39,9 @@
 
             if(document.getElementsByClassName("prompter-text")[0].firstChild)
             {
-
-                text +=  document.getElementsByClassName("prompter-text")[0].firstChild.innerText;
-                console.log(text);
-                document.getElementById("textbar").innerText = text;
                 editorElement.editor.clear();
-                run = !run;
             }
-        text="";
+
 
         }, 100);
 
