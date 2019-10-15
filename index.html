@@ -17,7 +17,7 @@
         <h1>This worked</h1>
         <div id="editor">
         </div>
-        <p id="textbar"></p>
+        <!-- <p id="textbar"></p> -->
     <script>
         const editorElement = document.getElementById('editor');
         MyScript.register(editorElement, {
@@ -30,9 +30,7 @@
             }
         });
         var text = "";
-        var i=0;
-        var run = true;
-        editorElement.addEventListener('changed', async function(event) {
+       // editorElement.addEventListener('changed', async function(event) {
             /*
             if(document.getElementsByClassName("prompter-text")[0].firstChild==null){
 
@@ -55,9 +53,9 @@
                 editorElement.editor.clear();
 
         } */
-        });
+       // });
 
-
+/*
         var tapElement = document.getElementById('tap');
         // We create a manager object, which is the same as Hammer(), but without the presetted recognizers.
         var mc = new Hammer.Manager(tapElement);
@@ -72,7 +70,7 @@
         mc.on("doubletap", function(ev) {
           console.log("double tap");
         });
-
+*/
     </script>
 
 
