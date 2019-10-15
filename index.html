@@ -5,17 +5,16 @@
         <script src="https://code.jquery.com/pep/0.4.3/pep.js"></script>
         <style>
             #editor {
+                border: #0000 1px;
                 border:1px solid #000;
-                width: 10cm;
-                height: 10cm;
+                width: 2cm;
+                height: 2cm;
             }
         </style>
     </head>
     <body>
         <h1>This worked</h1>
-        <div id="editor">
-        </div>
-        <!-- <p id="textbar"></p> -->
+        <div id="editor" touch-action="none"></div>
     <script>
         const editorElement = document.getElementById('editor');
         MyScript.register(editorElement, {
@@ -27,50 +26,6 @@
                 }
             }
         });
-        var text = "";
-       // editorElement.addEventListener('changed', async function(event) {
-            /*
-            if(document.getElementsByClassName("prompter-text")[0].firstChild==null){
-
-            await setTimeout(function(){
-
-            if(document.getElementsByClassName("prompter-text")[0].firstChild)
-            {
-                editorElement.editor.clear();
-            }
-
-
-        }, 100);
-
-    }
-        else {
-
-            text +=  document.getElementsByClassName("prompter-text")[0].firstChild.innerText;
-                console.log("else "+text);
-                document.getElementById("textbar").innerText = text;
-                editorElement.editor.clear();
-
-        } */
-       // });
-
-/*
-        var tapElement = document.getElementById('tap');
-        // We create a manager object, which is the same as Hammer(), but without the presetted recognizers.
-        var mc = new Hammer.Manager(tapElement);
-        // Tap recognizer with minimal 2 taps
-        mc.add( new Hammer.Tap({ event: 'doubletap', taps: 2 }) );
-        // Single tap recognizer
-        mc.add( new Hammer.Tap({ event: 'singletap' }) );
-        // we want to recognize this simulatenous, so a quadrupletap will be detected even while a tap has been recognized.
-        mc.get('doubletap').recognizeWith('singletap');
-        // we only want to trigger a tap, when we don't have detected a doubletap
-        mc.get('singletap').requireFailure('doubletap');
-        mc.on("doubletap", function(ev) {
-          console.log("double tap");
-        });
-*/
     </script>
-
-
     </body>
 </html>
