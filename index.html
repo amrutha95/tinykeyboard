@@ -6,23 +6,33 @@
         <script src="https://code.jquery.com/pep/0.4.3/pep.js"></script>
         <script src="https://hammerjs.github.io/dist/hammer.js"></script>
         <style>
-            #editor {
+            #outerdiv {
                 border:1px solid #000;
                 width: 8cm;
                 height: 8cm;
             }
             #tap {
-              height: 8cm;
+              border-top:1px solid #000;
+              width: 8cm;
+              height: 20%;
               text-align: center;
               font: 30px/300px Helvetica, Arial, sans-serif;
+            }
+            #editor {
+              width: 8cm;
+              height: 80%;
             }
         </style>
     </head>
     <body>
         <h1>This worked</h1>
-        <div id="tap" touch-action="none">
+        <div id="outerdiv">
+       
          <div id="editor" touch-action="none"></div>       
+         <div id="tap" touch-action="none"></div>
         </div>
+        
+        
 
         <p id="textbar"></p>
         <p id="tapDetector"></p>
@@ -77,8 +87,11 @@
         mc.get('singletap').requireFailure('doubletap');
         mc.on("doubletap", function(ev) {
           console.log("double tap");
+          text = text.substring(0,text.length-1);
+          document.getElementById("textbar").innerText = text;
           document.getElementById("tapDetector").innerText = ++i;
         });
+      
 
     </script>
 
