@@ -6,6 +6,9 @@
         <script src="https://code.jquery.com/pep/0.4.3/pep.js"></script>
         <script src="https://hammerjs.github.io/dist/hammer.js"></script>
         <style>
+            #editor div[id^='smartguide'] {
+                opacity : 0 !important;
+            }
             #outerdiv {
                 border:1px solid #000;
                 width: 8cm;
@@ -75,22 +78,50 @@
 
         var i=0;
         var tapElement = document.getElementById('tap');
+
         // We create a manager object, which is the same as Hammer(), but without the presetted recognizers.
         var mc = new Hammer.Manager(tapElement);
         // Tap recognizer with minimal 2 taps
         mc.add( new Hammer.Tap({ event: 'doubletap', taps: 2 }) );
         // Single tap recognizer
         mc.add( new Hammer.Tap({ event: 'singletap' }) );
+
         // we want to recognize this simulatenous, so a quadrupletap will be detected even while a tap has been recognized.
         mc.get('doubletap').recognizeWith('singletap');
         // we only want to trigger a tap, when we don't have detected a doubletap
         mc.get('singletap').requireFailure('doubletap');
-        mc.on("doubletap", function(ev) {
-          console.log("double tap");
+        
+
+        mc.on("singletap", function(ev) {
+          console.log("single tap");
+          text += " ";
+          document.getElementById("textbar").innerText = text;
+       
+        });
+    //     mc.on('swipe', function(ev) {
+    //     console.log(ev.direction);
+	//     switch(ev.direction) {
+
+	//     	case Hammer.DIRECTION_LEFT:
+    //       text = text.substring(0,text.length-1);
+	//     		break;
+	//     }
+    //   console.log("delete");
+    //   document.getElementById("textbar").innerText = text;
+    // });
+    
+    Hammer(tapElement).on("swipeleft", function() {
           text = text.substring(0,text.length-1);
           document.getElementById("textbar").innerText = text;
-          document.getElementById("tapDetector").innerText = ++i;
-        });
+        
+    });
+
+    Hammer(tapElement).on("swiperight", function() {
+          text += "\n";
+          document.getElementById("textbar").innerText = text;
+          console.log(text);
+        
+    });
       
 
     </script>
