@@ -17,13 +17,13 @@
             #tap {
               border-top:1px solid #000;
               width: 8cm;
-              height: 30%;
+              height: 20%;
               text-align: center;
               font: 30px/300px Helvetica, Arial, sans-serif;
             }
             #editor {
               width: 8cm;
-              height: 70%;
+              height: 80%;
             }
         </style>
     </head>
@@ -98,12 +98,7 @@
           document.getElementById("textbar").innerText = text;
        
         });
-        mc.on("doubletap", function(ev) {
-          console.log("double tap");
-          text = text.substring(0,text.length-1);
-          document.getElementById("textbar").innerText = text;
-       
-        });
+
     //     mc.on('swipe', function(ev) {
     //     console.log(ev.direction);
 	//     switch(ev.direction) {
@@ -117,8 +112,8 @@
     // });
     
     Hammer(tapElement).on("swipeleft", function() {
-          text = text.substring(0,text.lastIndexOf(" "));
-          document.getElementById("textbar").innerText = text;
+      text = text.substring(0,text.length-1);
+      document.getElementById("textbar").innerText = text;
         
     });
 
