@@ -5,18 +5,24 @@
         <script src="hammer.min.js"></script>
         <script src="https://code.jquery.com/pep/0.4.3/pep.js"></script>
         <script src="https://hammerjs.github.io/dist/hammer.js"></script>
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
         <style>
             #editor div[id^='smartguide'] {
                 opacity : 0 !important;
             }
+            h1{
+              text-align: center;
+            }
+            body{
+              background-image: url("dullpinkpaper.png");
+            }
             #outerdiv {
-                border:1px solid #000;
+                border:5px solid #800020;
                 width: 8cm;
                 height: 8cm;
             }
             #tap {
-              border-top:1px solid #000;
-              width: 8cm;
+              border-top:4px solid #800020;
               height: 20%;
               text-align: center;
               font: 30px/300px Helvetica, Arial, sans-serif;
@@ -31,11 +37,11 @@
                 top: 90%;
                 margin-top: -400px;
                 margin-left: -150px;
+                background-image: url("image.jpeg");
             }
             #textbar {
                 text-align: center;
-                text-decoration: underline;
-                font-size: x-large;
+                font-size: small;
             }
         </style>
     </head>
@@ -43,18 +49,18 @@
         <h1>Minuscribble</h1>
         <p id="textbar"></p>
         <div id="container">
-        
+              <p style="font-family:Arial, Helvetica, sans-serif"> <span class="glyphicon glyphicon-pencil"></span> below:</p>
         <div id="outerdiv">
-       
-         <div id="editor" touch-action="none"></div>       
-         <div id="tap" touch-action="none"></div>
-        </div>
-        
-        
 
-  
+         <div id="editor" touch-action="none"></div>
+         <div id="tap" touch-action="none"> </div>
+        </div>
+
+
+
+
     </div>
-     
+
     <script>
         const editorElement = document.getElementById('editor');
         MyScript.register(editorElement, {
@@ -87,7 +93,6 @@
         }
         });
         var i=0;
-    
         var tapElement = document.getElementById('tap');
         // We create a manager object, which is the same as Hammer(), but without the presetted recognizers.
         var mc = new Hammer.Manager(tapElement);
@@ -99,12 +104,12 @@
         mc.get('doubletap').recognizeWith('singletap');
         // we only want to trigger a tap, when we don't have detected a doubletap
         mc.get('singletap').requireFailure('doubletap');
-        
+
         mc.on("singletap", function(ev) {
           console.log("single tap");
           text += " ";
           document.getElementById("textbar").innerText = text;
-       
+
         });
     //     mc.on('swipe', function(ev) {
     //     console.log(ev.direction);
@@ -116,19 +121,19 @@
     //   console.log("delete");
     //   document.getElementById("textbar").innerText = text;
     // });
-    
+
     Hammer(tapElement).on("swipeleft", function() {
       text = text.substring(0,text.length-1);
       document.getElementById("textbar").innerText = text;
-        
+
     });
     Hammer(tapElement).on("swiperight", function() {
           text += "\n";
           document.getElementById("textbar").innerText = text;
           console.log(text);
-        
+
     });
-      
+
     </script>
 
 
